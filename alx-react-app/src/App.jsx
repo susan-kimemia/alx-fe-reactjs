@@ -22,6 +22,9 @@ function App() {
       </div>
 
       <WelcomeMessage />
+      <Header />
+      <MainContent />
+      <Footer />
 
       <h1>Vite + React</h1>
       <div className="card">
