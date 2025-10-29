@@ -11,11 +11,9 @@ See [LICENSE](LICENSE) for details.
 
 ## 👨‍💻 Author
 
-**Knoh Ayieko**  
-- 🌐 Portfolio: [knoph.dev](https://knoph.dev)  
-- 💼 LinkedIn: [Knoph Ayieko](https://linkedin.com/in/knoph-ayieko)  
-- 🐙 GitHub: [Knoph1](https://github.com/Knoph1)  
-- ✉️ Email: knophayieko@gmail.com  
+**Susan Kimemia**  
+- 🐙 GitHub: [Susan](https://github.com/susan-kimemia)  
+- ✉️ Email: susankimemia111@gmail.com
 
 ---
 
