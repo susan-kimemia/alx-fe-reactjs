@@ -1,37 +1,34 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import AddTodoForm from "./AddTodoForm";
 
 export default function TodoList() {
-  // initial static array for demonstration
-  const initialTodos = [
+  const [todos, setTodos] = useState([
     { id: 1, text: "Learn React", completed: false },
-    { id: 2, text: "Build Projects", completed: true },
-    { id: 3, text: "Practice Daily", completed: false }
-  ];
-
-  const [todos, setTodos] = useState(initialTodos);
+    { id: 2, text: "Practice Testing", completed: false },
+  ]);
 
   const addTodo = (text) => {
-    const newTodo = { id: Date.now(), text, completed: false };
-    setTodos((prev) => [...prev, newTodo]);
+    setTodos([...todos, { id: Date.now(), text, completed: false }]);
   };
 
   const toggleTodo = (id) => {
-    setTodos((prev) =>
-      prev.map((t) => (t.id === id ? { ...t, completed: !t.completed } : t))
+    setTodos(
+      todos.map((todo) =>
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+      )
     );
   };
 
   const deleteTodo = (id) => {
-    setTodos((prev) => prev.filter((t) => t.id !== id));
+    setTodos(todos.filter((todo) => todo.id !== id));
   };
 
   return (
     <div>
-      <h2>Todo List</h2>
-      <AddTodoForm onAdd={addTodo} />
+      <h1>Todo List</h1>
+      <AddTodoForm addTodo={addTodo} />
 
-      <ul data-testid="todo-list">
+      <ul>
         {todos.map((todo) => (
           <li
             key={todo.id}
@@ -39,23 +36,17 @@ export default function TodoList() {
             onClick={() => toggleTodo(todo.id)}
             style={{
               textDecoration: todo.completed ? "line-through" : "none",
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              padding: "6px 0",
-              cursor: "pointer"
             }}
           >
-            <span>{todo.text}</span>
+            {todo.text}
             <button
-              data-testid="delete-btn"
+              data-testid="delete-button"
               onClick={(e) => {
                 e.stopPropagation();
                 deleteTodo(todo.id);
               }}
-              aria-label={`delete-${todo.id}`}
             >
-              Delete
+              X
             </button>
           </li>
         ))}
